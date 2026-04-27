@@ -10,7 +10,7 @@ This repository contains my Linux shell scripting projects.
 - Shows disk usage
 - Includes basic warning message for high disk usage and current disk usage
 
-###Usage
+### Usage
 
 chmod +x system-monitor.sh
 ./system-monitor.sh
