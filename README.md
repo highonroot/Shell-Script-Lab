@@ -22,3 +22,17 @@ This repository contains my Linux shell scripting projects.
   Usage
 - chmod +x url-status.sh
 - ./url-status.sh https://example.com
+
+### 3. check-permission.sh
+- Displays file type and permissions in human-readable format
+- Breaks down permissions for:
+  • Owner
+  • Group
+  • Others
+- Detects potential security risks:
+  • World-writable files
+  • World-executable files
+
+  Usage
+- chmod +x check-permission.sh
+- ./check-permission.sh example.txt 
