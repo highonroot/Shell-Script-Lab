@@ -11,8 +11,10 @@ This repository contains my Linux shell scripting projects.
 - Displays warning when disk usage exceeds a threshold
 
   **Usage:**
-  - chmod +x system-monitor.sh
-  - ./system-monitor.sh
+```bash
+chmod +x system-monitor.sh
+./system-monitor.sh
+```
 
 ### 2. url-status.sh
 - Takes a URL as input
@@ -20,8 +22,10 @@ This repository contains my Linux shell scripting projects.
 - Outputs whether the site is UP or DOWN
 
   **Usage:**
-  - chmod +x url-status.sh
-  - ./url-status.sh https://example.com
+```bash
+chmod +x url-status.sh
+./url-status.sh https://example.com
+```
 
 ### 3. check-permission.sh
 - Displays file type and permissions in human-readable format
@@ -34,5 +38,7 @@ This repository contains my Linux shell scripting projects.
   - World-executable files
 
   **Usage:**
-  - chmod +x check-permission.sh
-  - ./check-permission.sh example.txt 
+```bash
+chmod +x check-permission.sh
+./check-permission.sh example.txt
+``` 
