@@ -41,4 +41,23 @@ chmod +x url-status.sh
 ```bash
 chmod +x check-permission.sh
 ./check-permission.sh example.txt
-``` 
+```
+
+### 4. path-info.sh
+- Displays metadata for a file or directory
+- Shows:
+  - File name and type
+  - Size
+  - Last modified time
+  - Permissions
+- For directories:
+  - Total size
+  - Number of files
+  - Number of subdirectories
+  - Permissions
+ 
+  **Usage:**
+```bash
+chmod +x path-info.sh
+./path-info.sh <path>
+```
