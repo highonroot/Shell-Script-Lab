@@ -10,6 +10,10 @@ then
     exit 1
 fi
 
+if [ -L "$path" ]; then
+    path=$(realpath "$path")
+fi
+
 name=$(stat -c "%n" "$path")
 type=$(stat -c "%F" "$path")
 
