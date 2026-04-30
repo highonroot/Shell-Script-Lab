@@ -4,10 +4,6 @@ path="$1"
 
 [ -z "$path" ] && echo "Provide a path" && exit 1
 
-if [ -L "$path" ]; then
-    path=$(realpath "$path")
-fi
-
 [ ! -d "$path" ] && echo "Error: Not a directory: $path" && exit 1
 
 read -p "Enter file extension to clean (e.g. tmp, bak, log): " ext
