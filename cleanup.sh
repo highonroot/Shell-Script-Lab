@@ -34,6 +34,7 @@ echo ""
 size_before=$(du -sbL "$path" | awk '{print $1}')
 
 while true; do
+    echo ""
     read -p "Show files before deleting? (y/n): " confirm_show
     confirm_show=$(echo "$confirm_show" | tr 'A-Z' 'a-z')
 
@@ -52,6 +53,7 @@ done
 echo ""
 
 while true; do
+    echo ""
     read -p "Delete all *.${ext} files in $path? (y/n): " confirm_del
     confirm_del=$(echo "$confirm_del" | tr 'A-Z' 'a-z')
 
