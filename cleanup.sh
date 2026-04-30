@@ -38,6 +38,7 @@ while true; do
     read -p "Show files before deleting? (y/n): " confirm_show
     confirm_show=$(echo "$confirm_show" | tr 'A-Z' 'a-z')
 
+    echo ""
     if [ "$confirm_show" = "y" ]; then
         echo "Files:"
         find "$path" -type f -name "*.${ext}"
@@ -57,6 +58,7 @@ while true; do
     read -p "Delete all *.${ext} files in $path? (y/n): " confirm_del
     confirm_del=$(echo "$confirm_del" | tr 'A-Z' 'a-z')
 
+    echo ""
     if [ "$confirm_del" = "y" ]; then
         find "$path" -type f -name "*.${ext}" -delete
         echo "$count_files *.${ext} files deleted successfully"
