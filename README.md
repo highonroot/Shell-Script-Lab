@@ -61,3 +61,18 @@ chmod +x check-permission.sh
 chmod +x path-info.sh
 ./path-info.sh <path>
 ```
+
+### 5. cleanup.sh
+- Cleans files based on user-specified extension (e.g. `.log`, `.tmp`, `.bak`)
+- Validates and sanitizes user input for safe execution
+- Counts matching files before deletion
+- Optionally displays files before deleting
+- Uses interactive confirmation to prevent accidental deletion
+- Calculates and displays space usage before and after cleanup
+- Shows freed space in human-readable format (with fallback if `numfmt` is unavailable)
+
+  **Usage:**
+```bash
+chmod +x cleanup.sh
+./cleanup.sh <path/to/directory>
+```
