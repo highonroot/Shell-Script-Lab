@@ -43,7 +43,7 @@ else
     echo "Ping: Unreachable"
 fi
 
-result=$(curl -o /dev/null -s -w "%{http_code} %{time_total}" --max-time 5 "$url")
+result=$(curl -L -o /dev/null -s -w "%{http_code} %{time_total}" --max-time 5 "$url")
 
 http_status=$(echo "$result" | awk '{print $1}')
 response_time=$(echo "$result" | awk '{print $2}')
