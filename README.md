@@ -76,3 +76,19 @@ chmod +x path-info.sh
 chmod +x cleanup.sh
 ./cleanup.sh <path/to/directory>
 ```
+
+### 6. process-killer.sh
+- Displays top running processes for quick reference
+- Accepts process name or PID as input
+- Shows matching processes before taking action
+- Requires user confirmation before termination
+- Supports normal kill (SIGTERM) and force kill (SIGKILL)
+- Handles multiple processes when using name input
+- Provides success/failure feedback for each process
+- Displays updated process list after execution
+
+  **Usage:**
+```bash
+chmod +x process-killer.sh
+./process-killer.sh
+```
