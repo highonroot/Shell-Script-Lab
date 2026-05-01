@@ -1,8 +1,17 @@
-# Shell-Script-Lab
+# Shell Script Lab
 
-This repository contains my Linux shell scripting projects.
+A collection of practical Linux shell utilities focused on system monitoring, file inspection, network diagnostics, and process control.
 
-## Scripts
+This repository reflects a progression from basic scripting concepts to building small, usable command-line tools. Each script is designed to solve a specific real-world task while maintaining clear input handling, validation, and readable output.
+
+## What this repository demonstrates
+- Working with files, directories, and permissions
+- Process inspection and controlled termination
+- Network diagnostics (DNS, reachability, HTTP checks)
+- Safe handling of user input and edge cases
+- Building interactive CLI-style scripts in Bash
+
+## Scripts Included
 
 ### 1. system-monitor.sh
 - Displays top CPU-consuming processes
@@ -16,15 +25,18 @@ chmod +x system-monitor.sh
 ./system-monitor.sh
 ```
 
-### 2. url-status.sh
-- Takes a URL as input
-- Checks if the website is reachable
-- Outputs whether the site is UP or DOWN
+### 2. netprobe.sh
+- Checks the status of a website using multiple layers of diagnostics
+- Performs DNS resolution and displays IPv4/IPv6 addresses
+- Tests network reachability using ping
+- Retrieves HTTP status code and response time
+- Handles URLs with or without protocol (http/https)
 
   **Usage:**
 ```bash
-chmod +x url-status.sh
-./url-status.sh https://example.com
+chmod +x netprobe.sh
+./netprobe.sh https://example.com
+./netprobe.sh example.com
 ```
 
 ### 3. check-permission.sh
@@ -92,3 +104,7 @@ chmod +x cleanup.sh
 chmod +x process-killer.sh
 ./process-killer.sh
 ```
+
+---
+
+This project is part of my hands-on learning in Linux and shell scripting, focused on building small, reliable tools rather than isolated examples.
