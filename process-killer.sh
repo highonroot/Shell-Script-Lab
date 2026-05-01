@@ -4,6 +4,8 @@ echo "Top running processes:"
 ps -eo pid,comm,%cpu,%mem --sort=-%cpu | head -n 10
 echo ""
 
+killed=0
+
 while true; do
     read -p "Do you want to kill a process? (y/n): " kill_proc
     kill_proc=$(echo "$kill_proc" | tr 'A-Z' 'a-z')
@@ -50,18 +52,20 @@ while true; do
 
                 if [ "$mode" = "pid" ]; then
                     if kill $signal "$target" 2>/dev/null; then
-                        echo "Killed PID $target"
+                        echo -e "\033[0;32m Killed PID $target \033[0m"
+                        killed=1
                     else
-                        echo "Failed to kill PID $target"
+                        echo -e "\033[1;33m Failed to kill PID $target \033m"
                     fi
                 else
                     pids=$(pgrep -f "$target")
 
-                    for pid in $pids; do
+                    for pid in "$pids"; do
                         if kill $signal "$pid" 2>/dev/null; then
-                            echo "Killed PID $pid"
+                            echo -e "\033[0;32m Killed PID $pid \033[0m"
+                            killed=1
                         else
-                            echo "Failed to kill PID $pid"
+                            echo -e "\033[1;33m Failed to kill PID $pid \033[0m"
                         fi
                     done
                 fi
@@ -84,9 +88,10 @@ while true; do
         done
 
     elif [ "$kill_proc" = "n" ]; then
-        echo "No process terminated"
+        if [ "$killed" -eq 0 ]; then
+            echo "No process terminated"
+        fi
         break
-
     else
         echo "Invalid input. Enter y or n."
         echo ""
