@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#test
 f_name="$1"
 
 [ -z "$f_name" ] && echo "Provide filename" && exit 1
