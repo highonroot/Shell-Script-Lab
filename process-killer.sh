@@ -1,5 +1,10 @@
 #!/bin/bash
 
+GREEN="\033[0;32m"
+YELLOW="\033[1;33m"
+RED="\033[0;31m"
+RESET="\033[0m"
+
 echo "Top running processes:"
 ps -eo pid,comm,%cpu,%mem --sort=-%cpu | head -n 10
 echo ""
@@ -52,21 +57,25 @@ while true; do
 
                 if [ "$mode" = "pid" ]; then
                     if kill $signal "$target" 2>/dev/null; then
-                        echo -e "\033[0;32m Killed PID $target \033[0m"
+                        echo -e "${GREEN}Killed PID $target${RESET}"
                         killed=1
                     else
-                        echo -e "\033[1;33m Failed to kill PID $target \033m"
+                        echo -e "${RED}Failed to kill PID $target${RESET}"
                     fi
                 else
-                    pids=$(pgrep -f "$target")
+                    pids=$(pgrep -x "$target")
 
-                    for pid in "$pids"; do
+                    for pid in $pids; do
+                        echo -e "${YELLOW}Killing PID $pid...${RESET}"
+
                         if kill $signal "$pid" 2>/dev/null; then
-                            echo -e "\033[0;32m Killed PID $pid \033[0m"
+                            echo -e "${GREEN}Killed PID $pid${RESET}"
                             killed=1
                         else
-                            echo -e "\033[1;33m Failed to kill PID $pid \033[0m"
+                            echo -e "${RED}Failed to kill PID $pid${RESET}"
                         fi
+
+                        sleep 0.5
                     done
                 fi
 
@@ -75,6 +84,7 @@ while true; do
                 sleep 1
                 ps -eo pid,comm,%cpu,%mem --sort=-%cpu | head -n 10
                 echo ""
+
                 break
 
             elif [ "$confirm" = "n" ]; then
@@ -92,6 +102,7 @@ while true; do
             echo "No process terminated"
         fi
         break
+
     else
         echo "Invalid input. Enter y or n."
         echo ""
