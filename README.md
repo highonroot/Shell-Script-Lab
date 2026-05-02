@@ -92,11 +92,12 @@ chmod +x cleanup.sh
 ### 6. process-killer.sh
 - Displays top running processes for quick reference
 - Accepts process name or PID as input
+- Matches processes accurately when using name input
 - Shows matching processes before taking action
 - Requires user confirmation before termination
-- Supports normal kill (SIGTERM) and force kill (SIGKILL)
-- Handles multiple processes when using name input
-- Provides success/failure feedback for each process
+- Supports normal (SIGTERM) and force (SIGKILL) termination
+- Handles multiple processes safely with sequential killing
+- Provides clear success/failure feedback for each process
 - Displays updated process list after execution
 
   **Usage:**
